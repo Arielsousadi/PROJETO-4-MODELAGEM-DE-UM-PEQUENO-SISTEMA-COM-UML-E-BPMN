@@ -1,6 +1,6 @@
-# PROJETO-4-MODELAGEM-DE-UM-PEQUENO-SISTEMA-COM-UML-E-BPMN
+ PROJETO-4-MODELAGEM-DE-UM-PEQUENO-SISTEMA-COM-UML-E-BPMN
 
-equipe: ARIEL & DEUS
+equipe: ARIEL & RODOLFO
 
 "BPMN"
 
@@ -8,41 +8,31 @@ equipe: ARIEL & DEUS
     -> [SIM] -> [reserva confirmada] -> [FIM]
     -> [NÃO] -> [exibe salas alternativas] -> [FIM]
 
-    
 "UML"
 
-class Usuario {
+/=======================/
+	CLIENTE
+/=======================/
+	- nome: String
+	- email: String
+/=======================/
+	# agendarSala()
+/=======================/
 
-  - nome: String
-    
-  - email: String
-    
-  + fazer reserva()
-    
-}
-
-class Sala {
-  - numero: int
-    
-  - capacidade: int
-    
-  + verificar disponibilidade()
-    
-}
-
-class Reserva {
-
-  - id: int
-    
-  - data: Date
-  
-  - horario: String
-    
-  + confirmar reserva()
-    
-}
-
-Usuario --> Reserva : "1 faz 0..*"
-
-Reserva --> Sala : "1 reserva 1"
+Cliente 1 === 0 (false)
+Cliente 1 === 1 (true) --------------|
+				     |
+/=======================/	     |
+	SALA			    <|
+/=======================/
+	# fazerReserva
+/=======================/
+reserva [+ local()
+	+ data()
+	+ horário()]
+/=======================/
+	reserva 1 === 0 (false)
+	reserva 1 === 1 (true) -------------|
+					    |
+			 Espaço agendado.  <|
 
