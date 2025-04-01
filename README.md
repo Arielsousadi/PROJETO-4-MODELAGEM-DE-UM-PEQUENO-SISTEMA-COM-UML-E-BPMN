@@ -1,38 +1,41 @@
- PROJETO-4-MODELAGEM-DE-UM-PEQUENO-SISTEMA-COM-UML-E-BPMN
-
 equipe: ARIEL & RODOLFO
 
 "BPMN"
-
 [INÍCIO] -> [usuário acessa o sistema] -> [seleciona sala e horário] -> [verifica disponibilidade] -> {sala disponível?}
-    -> [SIM] -> [reserva confirmada] -> [FIM]
-    -> [NÃO] -> [exibe salas alternativas] -> [FIM]
+-> [SIM] -> [reserva confirmada] -> [FIM]
+-> [NÃO] -> [exibe salas alternativas] -> [FIM]
 
 "UML"
-
 /=======================/
-	CLIENTE
+CLIENTE
 /=======================/
-	- nome: String
-	- email: String
+- nome: String
+- email: String
 /=======================/
-	# agendarSala()
+agendarReserva()
 /=======================/
 
 Cliente 1 === 0 (false)
-Cliente 1 === 1 (true) --------------|
-				     |
-/=======================/	     |
-	SALA			    <|
+Cliente: 1 === 1 (true) -> [Agendamento liberado]
+
 /=======================/
-	# fazerReserva
+RESERVA
+/=======================/
+fazerReserva
 /=======================/
 reserva [+ local()
-	+ data()
-	+ horário()]
++ data()
++ horário()]
 /=======================/
-	reserva 1 === 0 (false)
-	reserva 1 === 1 (true) -------------|
-					    |
-			 Espaço agendado.  <|
+reserva 1 === 0 (false) -> [Espaço já agendado, por favor escolha outro dia!]
+reserva 1 === 1 (true) -> [Reserva feita]
 
+/=======================/
+SALA
+/=======================/
+[+ local()
++ data()
++ horário()]
+/=======================/
+reserva 1 === 0 (false)
+reserva 1 === 1 (true) -> [Removido da lista de reservas]
