@@ -29,7 +29,9 @@ Cliente 1 === 0 (false)
 Cliente: 1 === 1 (true) -> [Agendamento liberado]
 
 /=======================/
+
 RESERVA
+
 /=======================/
 
 fazerReserva
@@ -41,8 +43,11 @@ reserva [+ local()
 + data()
 
 + horário()]
+ 
 /=======================/
+
 reserva 1 === 0 (false) -> [Espaço já agendado, por favor escolha outro dia!]
+
 reserva 1 === 1 (true) -> [Reserva feita]
 
 
